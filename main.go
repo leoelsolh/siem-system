@@ -6,14 +6,16 @@ import (
 )
 
 func main() {
-	slice, err := collectLogs("logs/sample.log")
+	l, err := collectLogs("logs/sample.log")
 	if err != nil {
-		log.Printf(
-			"Something went wront while collecting logs:  %s",
-			err,
-		)
+		log.Printf("Error while collecting logs:  %s", err)
+		return
 	}
-	for i, thing := range slice {
-		fmt.Printf("[%d]  %s\n", i+1, thing)
+	p := parseLogs(l)
+	for i, entry := range p {
+		found := Flag(entry)
+		if found {
+			fmt.Printf("Alert on line %d\n", i+1)
+		}
 	}
 }

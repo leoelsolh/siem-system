@@ -16,3 +16,4 @@ Oct 18 08:31:40 webserver01 sshd[2410]: Failed password for alice from 192.168.1
 Oct 18 08:31:44 webserver01 sshd[2410]: Accepted password for alice from 192.168.1.20 port 51300 ssh2
 Oct 18 08:45:09 webserver01 sudo:      bob : 3 incorrect password attempts ; TTY=pts/1 ; PWD=/home/bob ; USER=root ; COMMAND=/bin/bash
 Oct 18 08:52:21 webserver01 sshd[2502]: Disconnected from user alice 192.168.1.20 port 51234
+Malformed line

@@ -6,13 +6,13 @@ import (
 )
 
 func collectLogs(filepath string) ([]string, error) {
-	file, err := os.Open(filepath)
+	f, err := os.Open(filepath)
 	if err != nil {
 		return nil, err
 	}
-	defer file.Close()
+	defer f.Close()
 
-	s := bufio.NewScanner(file)
+	s := bufio.NewScanner(f)
 	s.Split(bufio.ScanLines)
 	slice := []string{}
 	for s.Scan() {
