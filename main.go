@@ -8,14 +8,13 @@ import (
 func main() {
 	l, err := collectLogs("logs/sample.log")
 	if err != nil {
-		log.Printf("Error while collecting logs:  %s", err)
+		log.Printf("Error while collecting logs:  %v", err)
 		return
 	}
 	p := parseLogs(l)
-	for i, entry := range p {
-		found := Flag(entry)
-		if found {
-			fmt.Printf("Alert on line %d\n", i+1)
-		}
+	flagged := filterEvents(p)
+	fmt.Println("[ flagged events ]")
+	for _, f := range flagged {
+		fmt.Println(f.Message)
 	}
 }

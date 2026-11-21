@@ -2,12 +2,12 @@ package main
 
 import "strings"
 
-func Flag(l Log) bool {
-	// hardcode the conditions for now
-	// p := "sshd"
+func flagEntry(l Log) bool {
+	// harcoded conditions are temporary
+	p := "sshd"
 	m := "Failed password"
 
-	if strings.HasPrefix(l.Message, m) {
+	if strings.HasPrefix(l.Message, m) && l.Process == p {
 		return true
 	}
 	return false
